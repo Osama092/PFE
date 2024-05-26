@@ -1,0 +1,195 @@
+
+<app-nav-bar></app-nav-bar>
+<link styleSheet="assets/temp.css">
+
+<section class="py-5" *ngIf="products && products.length > 0" class="product">
+  <div class="container"  *ngFor="let product of products">
+    <div class="row gx-5">
+      <aside class="col-lg-6">
+        <div class="border rounded-4 mb-3 d-flex justify-content-center">
+          <a data-fslightbox="mygalley" class="rounded-4" target="_blank" data-type="image">
+            <p-carousel [value]="getImages(product)" [numVisible]="1" [circular]="true" [autoplayInterval]="3000">
+              <ng-template let-image pTemplate="item">
+                  <img style="width: 100%; height: 100vh; object-fit: contain;" class="rounded-4 fit" [src]="'data:image/png;base64,' + image" alt="Product Image" />
+              </ng-template>
+            </p-carousel>
+          
+          </a>
+        </div>
+      </aside>
+
+      <main class="col-lg-6">
+        <div class="ps-lg-3">
+          <span (click)="openReportDialog()" class="rep-product">
+            <img src="assets/flag_FILL0_wght400_GRAD0_opsz24.svg">
+            report
+          </span>
+          <h4 class="title text-dark">
+           
+            {{ product.productName }}
+          </h4>
+          
+          
+          
+
+
+          <div class="mb-3">
+            <span class="h5">{{ product.productPrice }} DT</span>
+          </div>
+
+          <p>
+            {{ product.productDescription }}
+          </p>
+
+          <div class="row">
+
+            <dt class="col-3">Color</dt>
+            <dd class="col-9">  <span class="color-dot" [style.backgroundColor]="product.productColor"></span>
+              {{ product.productColor }}</dd>
+
+
+            <dt class="col-3">Brand</dt>
+            <dd class="col-9">{{product.productBrand}}</dd>
+            
+            <dt class="col-3">Size</dt>
+            <dd class="col-9">{{ product.productSize }}</dd>
+            
+          </div>
+
+          <hr />
+
+          <a class="btn btn-warning shadow-0" *ngIf="!showDeleteButton" (click)="openBuyDialog()"> Buy now </a>
+          <a href="#" class="btn delete-btn" *ngIf="showDeleteButton" (click)="deleteProduct(productId, $event)">Delete product</a>
+          <a href="#" class="btn delete-btn" *ngIf="showDeleteButton" (click)="editProduct(productId, $event)">Edit product</a>
+
+          <hr />
+
+          <div class="user-profile">
+            <div class="row align-items-center">
+              <div class="col-md-2 text-center">
+                <img [src]="'data:image/png;base64,' + userProfilePicture" alt="User Image" class="rounded-circle" style="width: 80px; height: 80px;" (click)="goToProductSellerProfilePage()">
+              </div>
+              <div class="col-md-10">
+                <h4 class="title text-dark" >{{ product_holder }}</h4>
+                <div class="user-bio">
+                  <!--<div class="quotation-mark">“</div>-->
+                  <i class="fa-solid fa-quote-left"></i>
+                  <p class="text-secondary">{{ userBio }}</p>
+                  <i class="fa-solid fa-quote-right"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr/>
+
+        </div>
+      </main>
+    </div>
+  </div>
+
+</section>
+ 
+  
+<section class="bg-light border-top py-4">
+  <div class="container">
+    <div class="row gx-4">
+      <div class="col-lg-8 mb-4">
+        <div class="border rounded-2 px-3 py-2 bg-white">
+          
+          <div class="tab-content" id="ex1-content">
+            <div class="tab-pane fade show active" id="ex1-pills-1" role="tabpanel" aria-labelledby="ex1-tab-1">
+              
+
+              <button mat-button (click)="openShareDialog()">Tell you friends <i class="fa-solid fa-share-from-square" style="color: #1396ce;"></i></button>
+              <div class="likes">
+                <i class="fa-regular fa-heart" style="color: #1396ce;"></i> {{likeCount}}
+
+              </div>
+              
+              
+              
+              <div class="t-comments-box">
+                <div class="add-comment">
+                  <img *ngIf="userPic" [src]="'data:image/png;base64,' + userPic" alt="User Image" />
+                  <img *ngIf="!userPic" src="assets/default_profile_picture.jpg" alt="Default User Image" />
+
+                  <div class="comment-input">
+                    <input
+                      class="form-control form-control-sm"
+                      type="text"
+                      [(ngModel)]="newComment"
+                      placeholder="Add a comment.."
+                      (keyup.enter)="addComment()"
+                    />
+                    <div class="comment-send" (click)="addComment()">
+                      <i class="fab fa-telegram-plane"></i>
+                    </div>
+                  </div>
+                </div>
+                <!-- Display existing comments -->
+                <div class="existing-comments">
+                  <div *ngIf="comments.length === 0" class="no-comments-message">
+                    No comments yet. Be the first to comment!
+                  </div>
+                  <div class="comment" *ngFor="let comment of comments" >
+                    <!-- Check if commentOwner is defined before accessing its properties -->
+                    <ng-container *ngIf="comment.commentOwner">
+                      <!-- Display user profile picture -->
+                      <img [src]="'data:image/png;base64,' + comment.commentOwner.userProfilePic" alt="" />
+                      <div>
+                        <div class="comment-label">
+                          <!-- Display username -->
+                          <span class="comment-name">{{ comment.commentOwner.userUsername }}</span>
+                          <!-- Display comment time -->
+                          <span class="comment-time"> - {{ formatCommentTime(comment.commentDate) }}</span>
+
+                        </div>
+                        <!-- Display comment content -->
+                        <div> <!-- Show comment content only if not in editing mode -->
+                          <div class="comment-content">
+                            {{ comment.commentContent }}
+                          </div>
+                        </div>
+                      </div>
+                    </ng-container>
+                  </div>
+                </div>
+                
+                  
+              
+                </div>
+              
+            </div>
+          </div>
+          
+          <!-- Pills content -->
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="px-0 border rounded-2 shadow-0">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title" *ngIf="similarProducts && similarProducts.length > 0">Similar items</h5>
+              <div class="d-flex mb-3" *ngFor="let product of similarProducts">
+                <a href="#" class="me-3">
+                  <img [src]="'data:image/png;base64,' + product.productPic1" style="min-width: 96px; height: 96px;" class="img-md img-thumbnail" />
+                </a>
+                <div class="info">
+                  <a href="#" class="nav-link mb-1">
+                    {{ product.productDescription }} <br/>
+                    {{ product.productName }}
+                  </a>
+                  <strong class="text-dark"> {{ product.productPrice }} DT</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+  
+  
+  

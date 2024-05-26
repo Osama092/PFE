@@ -1,0 +1,102 @@
+.example-stepper {
+    margin-top: 8px;
+  }
+  
+  .mat-mdc-form-field {
+    margin-top: 16px;
+  }
+
+  /* Override the color of the stepper */
+  ::ng-deep .mat-step-header .mat-step-icon-selected {
+    background-color: #1396CE; 
+ }
+
+ .img-thumbnail{
+  width: 96px;
+  height: 96px;
+ }
+
+
+
+ ::ng-deep mat-form-field {
+  width:200px !important;
+  height: 70px;
+  
+}
+
+.example-month-picker .mat-calendar-period-button {
+  pointer-events: none;
+}
+
+.example-month-picker .mat-calendar-arrow {
+  display: none;
+}
+
+.product-info {
+  
+  margin-left:40px;
+  display: flex;
+}
+
+.img-thumbnail {
+  float: left;
+  margin-right: 10px; /* Adjust margin as needed */
+  width:150px;
+  height:150px;
+}
+
+.text-info {
+  color: black !important; /* Ensure black color */
+  opacity: 0.9 !important;
+  display: flex;
+  text-shadow: #1396CE !important;
+  flex-direction: column;
+}
+
+
+
+.bold{
+  font-weight: 500 !important;
+  font-size: larger;
+}
+
+.custom-btn-green {
+  margin-left: 10%;
+  margin-top: 5%;
+  color: #fff;
+  background-color: #1396CE;
+  border-color: #1396CE;
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  user-select: none;
+  text-decoration: none;
+}
+
+.custom-btn-green:hover {
+  background-color: #ffffff !important;
+  color: #1396CE !important;
+  border-color: #1396CE !important;
+}
+
+
+.custom-btn-green.btn-block {
+  display: block;
+  width: 75%;
+}
+
+.mat-mdc-radio-button ~ .mat-mdc-radio-button {
+  margin-left: 16px;
+}

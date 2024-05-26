@@ -1,0 +1,170 @@
+.btn{
+	background-color: #1396CE;
+	border-radius: 0%;
+	color:white;
+}
+
+.btn:hover{
+	border-color: #1396CE !important;
+    background-color: white !important;
+    color: #1396CE !important;
+}
+
+
+.t-comments-box .add-comment .comment-input .comment-send {
+    font-size: 1.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    width: 35px;
+    height: 100%;
+    border-radius: 0.2rem;
+    color: #13c8ce72;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.t-comments-box .add-comment .comment-input .comment-send:hover {
+    color: #1396CE;
+}
+
+.t-comments-box {
+    padding: 0.5rem;
+  }
+  
+  .t-comments-box .comment-title {
+    font-family: 'Raleway';
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #263843;
+    border-bottom: 1px solid #C3CCD3;
+    margin-top: .25rem;
+    margin-bottom: 1rem;
+    max-width: 400px;
+  }
+  
+
+  
+  .t-comments-box .add-comment {
+    display: flex;
+  }
+  
+  .t-comments-box .add-comment .comment-input {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  
+  .t-comments-box .add-comment .comment-input input {
+    height: 100%;
+    width: 100%;
+    padding-right: 2.5rem;
+    font-size: 1.1rem; /* Increase input font size */
+
+  }
+  
+  .t-comments-box .add-comment .comment-input input::placeholder {
+    color: #c3ccd3;
+  }
+  
+  .t-comments-box .add-comment .comment-input .comment-send {
+    font-size: 1.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    width: 35px;
+    height: 100%;
+    border-radius: 0.2rem;
+    color: #1396ce5b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  
+  .t-comments-box .add-comment .comment-input .comment-send:hover {
+    color: #1396CE;
+  }
+  
+  .t-comments-box .comment {
+    display: flex;
+    margin-top: 1rem;
+    font-size: 1rem; /* Increase comment font size */
+
+  }
+  
+  .t-comments-box .comment .comment-label {
+    line-height: 1;
+  }
+  
+  .t-comments-box .comment .comment-label .comment-name {
+    font-weight: 500;
+    font-size: 0.85rem;
+    font-size: 1rem; /* Increase username font size */
+
+    color: #292929;
+  }
+  
+  .t-comments-box .comment .comment-label .comment-time {
+    font-weight: 100;
+    color: #768791;
+    font-size: 0.9rem; /* Increase font size */
+
+  }
+  
+  .t-comments-box .comment .comment-content {
+    color: #424545;
+    margin-top: 0.1rem;
+    font-size: 1rem; /* Increase font size */
+
+    
+  }
+  
+  .t-comments-box .comment .comment-action {
+    color: #c3ccd3;
+    line-height: 1.2;
+  }
+  
+  .t-comments-box .comment .comment-action span {
+    margin-right: 1rem;
+  }
+  
+
+
+  img {
+    width: 40px; /* Increase image width */
+    height: 40px; /* Increase image height */
+    margin-right: 15px; /* Adjust margin */
+    border-radius: 50%;
+}
+
+.user-bio {
+	margin-top:10px;
+	background-color: #f0f0f0; /* Light gray background color */
+	border-left: 4px solid #1396ce; /* Border on the left side */
+	padding: 20px; /* Add padding to create space */
+	margin-bottom: 20px; /* Add margin for spacing */
+  width:80%;
+  }
+  
+  .quotation-mark {
+	font-size: 40px; /* Font size of the quotation mark */
+	color: #1396ce; /* Dark gray color */
+	margin-bottom: 10px; /* Adjust margin as needed */
+  }
+
+
+.likes{
+  float:right;
+  font-size: 1.3vw;
+}
+.rep-product{
+  float:right !important;
+}

@@ -1,0 +1,94 @@
+<nav>
+  
+</nav>
+<div class="navbar">
+    <!-- Logo on the left -->
+    <div class="logo">
+      <img [src]="imageUrl" (click)="goToHomePage()" alt="Dabchy_Logo">
+    </div>
+  
+  
+    <!-- "I'm selling" button -->
+    <div class="sell-button">
+      <button class="custom-btn-green">I'm Selling</button>
+    </div>
+
+    <!-- Cart icon with badge showing the count -->
+    <div class="cart-icon custom-badge-color" matBadge="{{cartItemCount}}" matBadgeColor="warn" matBadgeOverlap="true">
+      <img src="assets/local_mall_FILL0_wght400_GRAD0_opsz24.svg">
+    </div>
+
+    
+
+
+    <i class="fa-regular fa-bell fa-shake"></i>
+    <div>
+      <button mat-button [matMenuTriggerFor]="menu">
+        <i class="fa-regular fa-bell fa-lg fa-shake" style="color: #000000;"></i>
+        <span class="notification-bell custom-badge-color" matBadge="{{notificationItemCount}}" matBadgeColor="warn" matBadgeOverlap="true"></span>
+      </button>
+      <mat-menu #menu="matMenu">
+        <ng-container *ngFor="let notification of notifications['COMMENT']">
+          <div class="notifications-item" (click)="removeNotification(notification)">
+            <img [src]="'data:image/png;base64,' + notification.senderDetails?.userProfilePic" alt="Profile Pic" [style.border-radius.%]="50">
+            <div class="text">
+
+                <h4>{{notification.senderDetails?.userUsername}}</h4>
+                <p>{{notification.senderDetails?.userUsername}} <span class="blue"> commented </span> on your product </p>
+
+              </div>
+          </div>
+        </ng-container>
+
+        <ng-container *ngFor="let notification of notifications['LIKE']">
+          <div class="notifications-item" (click)="removeNotification(notification)">
+            <img [src]="'data:image/png;base64,' + notification.senderDetails?.userProfilePic" alt="Profile Pic"  [style.border-radius.%]="50">
+            <div class="text">
+
+                <h4>{{notification.senderDetails?.userUsername}}</h4>
+                <p>{{notification.senderDetails?.userUsername}} <span class="blue"> liked </span> your product </p>
+
+              </div>
+          </div>
+        </ng-container>
+
+        <ng-container *ngFor="let notification of notifications['FOLLOW']">
+          <div class="notifications-item" (click)="removeNotification(notification)">
+            <img [src]="'data:image/png;base64,' + notification.senderDetails?.userProfilePic" alt="Profile Pic"  [style.border-radius.%]="50">
+            <div class="text">
+
+                <h4>{{notification.senderDetails?.userUsername}}</h4>
+                <span>{{notification.senderDetails?.userUsername}} now <span class="blue"> follows </span> you </span>
+
+            </div>
+          </div>
+        </ng-container>
+      </mat-menu>
+    </div>
+
+    <!-- User image on the right -->
+
+
+    <div class="user-image">
+      <img *ngIf="userId" mat-button [matMenuTriggerFor]="mennu" [src]="'data:image/png;base64,' + userPic"  alt="User Image">
+    </div>
+
+    <div *ngIf="!userId" >
+      <a href="login" class="active">login</a>
+      <
+      <a href="register" class="active">register</a>
+    </div>
+    
+    <mat-menu #mennu="matMenu">
+
+      <h6 mat-menu-item (click)="goToUserEditPage()">My Profile</h6>
+      <a mat-menu-item (click)="goToUserEditPage()">My Profile</a>
+      <button mat-menu-item (click)="goToUserProfilePage()">My Closet</button>
+      <button mat-menu-item (click)="goToOrderPage()">My Orders</button>
+      <button mat-menu-item (click)="goToUserFavoriteProductPage()">My Favorite</button>
+      <button mat-menu-item (click)="goToUserProfilePage()">FAQs</button>
+      <a mat-menu-item (click)="goToLoginPage()">Logout</a>
+
+    </mat-menu>
+
+</div>

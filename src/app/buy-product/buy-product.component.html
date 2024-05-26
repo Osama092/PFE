@@ -1,0 +1,164 @@
+<h2 mat-dialog-title>Inst</h2>
+<div class="product-info">
+  <img [src]="'data:image/png;base64,' + product!.productPic1" alt="Product Image" class="img-thumbnail">
+  <div class="text-info">
+    <span class="bold">{{product!.productName}}</span>
+    <span class="bold">{{product!.productDescription}}</span>
+    <span>Size: {{product!.productSize}}</span>
+    <span>Price: {{product!.productPrice}}</span>
+    <span>Shipping cost: 8 DT</span>
+    <span class="bold">Total: {{productTotatCost}} DT</span>
+  </div>
+</div>
+<mat-dialog-content class="mat-typography">
+  @switch (stepperOrientation | async) {
+    @case ('horizontal') {
+    }
+    @case ('vertical') {
+    }
+  }
+
+  <mat-stepper class="example-stepper" [orientation]="(stepperOrientation | async)!" [linear]="isLinear">
+    
+    
+    <mat-step [stepControl]="firstFormGroup" label="Shipping">
+      
+    
+      <form [formGroup]="firstFormGroup">
+        
+
+        <mat-form-field>
+          <mat-label>First Name</mat-label>
+          <input matInput [(ngModel)]="updatedUser.userFirstName" [(ngModel)]="guestOrder.guestFirstName" placeholder="First name" formControlName="firstName" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Last Name</mat-label>
+          <input matInput [(ngModel)]="updatedUser.userLastName" [(ngModel)]="guestOrder.guestLastName" placeholder="First name" formControlName="lastName" required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input matInput [(ngModel)]="updatedUser.userEmail" [(ngModel)]="guestOrder.guestEmail" formControlName="email" required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <mat-label>Phone Number</mat-label>
+          <input matInput [(ngModel)]="updatedUser.userPhoneNumber" [(ngModel)]="guestOrder.guestPhoneNumber" formControlName="phoneNumber" required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <mat-label>Address</mat-label>
+          <input matInput [(ngModel)]="updatedUserAddress.addressUser" [(ngModel)]="guestOrder.guestAddress"  formControlName="addressUser" required>
+        </mat-form-field>
+        <mat-form-field>
+
+          <mat-label>Address Hint</mat-label>
+          <input matInput [(ngModel)]="updatedUserAddress.addressHint" [(ngModel)]="guestOrder.guestAddressHint" formControlName="addressHint" placeholder="Help us find you quicker">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <mat-label>Zip Code</mat-label>
+          <input matInput [(ngModel)]="updatedUserAddress.zipCode" [(ngModel)]="guestOrder.guestZipCode" formControlName="zipCode" required>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>City</mat-label>
+          <mat-select formControlName="city" required>
+            <mat-option *ngFor="let city of cities" [value]="city">{{ city }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" label="Payment" *ngIf="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <mat-radio-group aria-label="Select an option" formControlName="paymentOption">
+          <mat-radio-button value="1">Pay with credit card</mat-radio-button>
+          <mat-radio-button value="2">Pay on delivery</mat-radio-button>
+      </mat-radio-group>
+    
+        <mat-form-field *ngIf="secondFormGroup.get('paymentOption')?.value === '1'">
+            <mat-label>Card number</mat-label>
+            <input matInput formControlName="cardNumber" required 
+                (keyup)="onCardNumberInput($event)" maxlength="16">
+            <mat-error *ngIf="secondFormGroup.get('cardNumber')?.errors?.['required']">Card number is required</mat-error>
+            <mat-error *ngIf="secondFormGroup.get('cardNumber')?.errors?.['invalidCreditCardLength']">Invalid card number length</mat-error>
+            <mat-error *ngIf="secondFormGroup.get('cardNumber')?.errors?.['invalidCreditCard']">Invalid credit card number</mat-error>
+        </mat-form-field>
+    
+        <br *ngIf="secondFormGroup.get('paymentOption')?.value === '1'">
+    
+        <mat-form-field *ngIf="secondFormGroup.get('paymentOption')?.value === '1'">
+            <mat-label>Month and Year</mat-label>
+            <input matInput [matDatepicker]="dp" [formControl]="expiryDate">
+            <mat-hint>MM/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+            <mat-datepicker #dp startView="multi-year" (monthSelected)="setMonthAndYear($event, dp)"></mat-datepicker>
+            <mat-error *ngIf="expiryDate.hasError('futureDate')">Expiry date not valid</mat-error>
+        </mat-form-field>
+    
+        <mat-form-field *ngIf="secondFormGroup.get('paymentOption')?.value === '1'">
+          <mat-label>Security code</mat-label>
+            <input matInput formControlName="securityCode" placeholder="Enter security code" required maxlength="3" (input)="onSecurityCodeInput($event)" type="tel">
+            <mat-error *ngIf="secondFormGroup.get('securityCode')?.hasError('required')">
+                Security code is required
+            </mat-error>
+            <mat-error *ngIf="secondFormGroup.get('securityCode')?.hasError('invalidSecurityCode')">
+                Invalid security code. Please enter a valid 3-digit security code.
+            </mat-error>
+        </mat-form-field>
+        
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <!-- Progress to the next step regardless of form validity -->
+          <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+    
+    </mat-step>
+    <mat-step [stepControl]="thirdFormGroup" label="Review">
+      <form [formGroup]="thirdFormGroup">
+        <div>
+          <h3>Shipping Information:</h3>
+          <p><strong>First Name:</strong> {{ updatedUser.userFirstName }}</p>
+          <p><strong>Last Name:</strong> {{ updatedUser.userLastName }}</p>
+          <p><strong>Email:</strong> {{ updatedUser.userEmail }}</p>
+          <p><strong>Phone Number:</strong> {{ updatedUser.userPhoneNumber }}</p>
+          <p><strong>Address:</strong> {{ updatedUserAddress.addressUser }}</p>
+          <p><strong>Address Hint:</strong> {{ updatedUserAddress.addressHint }}</p>
+          <p><strong>Zip Code:</strong> {{ updatedUserAddress.zipCode }}</p>
+          <p *ngIf="firstFormGroup.get('city')?.value"><strong>
+            City:</strong> {{ firstFormGroup.get('city')?.value }}
+          </p>
+        </div>
+        <!-- Displaying payment information from the second step -->
+        <div>
+          <h3>Payment Information:</h3>
+          
+          <ng-container *ngIf="secondFormGroup.get('paymentOption')?.value === '1'">
+            <!-- Display credit card-related information -->
+            <p><strong>Card Number:</strong> {{ secondFormGroup.value.cardNumber }}</p>
+            <p><strong>Expiration Date:</strong> {{ expiryDate.value?.toDate() | date: 'MM/yyyy' }}</p>
+            <p><strong>Security Code:</strong> {{ secondFormGroup.value.securityCode }}</p>
+        </ng-container>
+        <ng-container *ngIf="secondFormGroup.get('paymentOption')?.value === '2'">
+            <!-- Display payment method for Pay on delivery -->
+            <p><strong>Payment Method:</strong> Pay on delivery</p>
+        </ng-container>
+        </div>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="onSubmit()">Done</button>
+        </div>
+      </form>
+    </mat-step>
+
+
+  </mat-stepper>
+
+
+</mat-dialog-content>
+

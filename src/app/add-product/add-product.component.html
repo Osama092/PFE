@@ -1,0 +1,183 @@
+<app-nav-bar></app-nav-bar>
+<div class="page-container">
+    <div class="add-product">
+      <div class="title-box">
+        <h1 _ngcontent-serverapp-c40=""><i _ngcontent-serverapp-c40="" class="fa fa-fw fa-plus blue"></i> Im Selling An Item !</h1>
+        <form (ngSubmit)="onSubmit()" #addProductForm="ngForm">
+        
+          <div class="product-pic">
+            <h2><i class="fa fa-fw fa-camera-retro blue"></i> Take 5 pictures!</h2>
+            <div class="col-md-9">
+                    
+                <div class="text-center">
+                    <div class="text-center">
+                        <p-carousel [value]="productImages" [numVisible]="1" [circular]="true" [autoplayInterval]="3000" [showIndicators]="false">
+                          <ng-template let-image pTemplate="item">
+                            <img *ngIf="image" [src]="image">
+                            <input type="file" class="form-control" (change)="onFileSelected($event, getIndex(image))" id="userProfilePic">
+                            <label> Image {{getIndex(image) + 1}} <span *ngIf="getIndex(image) === 0" class="required">Required</span></label>
+
+                          </ng-template>
+                        </p-carousel>
+                      </div>
+                      
+                </div>
+            </div>
+                
+              
+              
+              
+          </div>
+          
+        <div class="col-md-9 personal-info">
+            <h3>Product info</h3>
+
+            <div class="form-group">
+                <label class="col-lg-3 control-label" for="productName">Product name:</label>
+                <div class="col-lg-8">
+                    <input class="form-control" type="text" id="productName" [(ngModel)]="product.productName"  name="productName" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-3 control-label" for="productDescription">Product description:</label>
+                <div class="col-lg-8">
+                    <input class="form-control" type="text" id="productDescription" [(ngModel)]="product.productDescription" name="productDescription" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-3 control-label" for="userLastName">Product category:</label>
+                <div class="col-lg-8">
+                    <select name="Category" id="category" [(ngModel)]="product.productCategory">
+                        <option value="Clothes">Clothes</option>
+                        <option value="Shoes">Shoes</option>
+                        <option value="Accessory">Accessory</option>
+                    </select>                        
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-3 control-label" for="userEmail">Brand:</label>
+                <div class="col-lg-8">
+                    <select name="Brand" id="brand" [(ngModel)]="product.productBrand">
+                        <option value="Peak">Peak</option>
+                        <option value="Nike">Nike</option>
+                        <option value="Adidas">Adidas</option>
+                        <option value="Calvin Klein">Calvin Klein</option>
+                    </select>                        
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-3 control-label" for="userEmail">State:</label>
+                <div class="col-lg-8">
+                    <select name="State" id="state" [(ngModel)]="product.productState">
+        
+                        <option value="New with label">New with label</option>
+                        <option value="New without label">New without label</option>
+                        <option value="Very good state">Very good state</option>
+                        <option value="Good condition">Good condition</option>
+                        <option value="Satisfying">Satisfying</option>
+                    </select>                      
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-3 control-label" for="userEmail">Size:</label>
+                <select name="Size" id="size" [(ngModel)]="product.productSize">
+                    <option value="32">32</option>
+                    <option value="33">33</option>
+                    <option value="34">34</option>
+                    <option value="35">35</option>
+                    <option value="36">36</option>
+                    <option value="37">37</option>
+                    <option value="38">38</option>
+                    <option value="39">39</option>
+                    <option value="40">40</option>
+                    <option value="41">41</option>
+                    <option value="42">42</option>
+                    <option value="43">43</option>
+                    <option value="44">44</option>
+                    <option value="45">45</option>
+                    <option value="46">46</option>
+                    <option value="47">47</option>
+                    <option value="48">48</option>
+                    <option value="49">49</option>
+                    <option value="50">50</option>
+                    <option value="xxs">XXS</option>
+                    <option value="xs">XS</option>
+                    <option value="s">S</option>
+                    <option value="m">M</option>
+                    <option value="l">L</option>
+                    <option value="xl">XL</option>
+                    <option value="xxl">XXL</option>
+                    <option value="xxxl">XXXL</option>
+                    <option value="4xl">4XL</option>
+                    <option value="Autre Taille">Other Size</option>
+                </select>                    
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-3 control-label" for="userEmail">Color:</label>
+                <div class="col-lg-8">
+                    <select name="Color" id="color" [(ngModel)]="product.productColor">
+                        <option value="Beige">Beige</option>
+                        <option value="Blanc">White</option>
+                        <option value="Bleu">Blue</option>
+                        <option value="Bordeaux">Bordeaux</option>
+                        <option value="Camel">Camel</option>
+                        <option value="Corail">Coral</option>
+                        <option value="Doré">Gold</option>
+                        <option value="Gris">Gray</option>
+                        <option value="Jaune">Yellow</option>
+                        <option value="Marron">Brown</option>
+                        <option value="Multicolores">Multicolored</option>
+                        <option value="Noir">Black</option>
+                        <option value="Nude">Nude</option>
+                        <option value="Orange">Orange</option>
+                        <option value="Rose">Pink</option>
+                        <option value="Rose poudré">Powder Pink</option>
+                        <option value="Rouge">Red</option>
+                        <option value="Turquoise">Turquoise</option>
+                        <option value="Vert">Green</option>
+                        <option value="Vert d'eau">Mint Green</option>
+                        <option value="Violet">Purple</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="userBio">Price:</label>
+                <div class="col-md-8">
+                    <input class="form-control" type="text" id="userBio" [(ngModel)]="product.productPrice" name="userBio">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="userBio">Original price:</label>
+                <div class="col-md-8">
+                    <input class="form-control" type="text" id="userBio" [(ngModel)]="product.productOriginalPrice" name="userBio">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="col-md-3 control-label"></label>
+                <div class="col-md-8">
+                    <button type="submit" [disabled]="addProductForm.invalid" class="btn btn-primary disabled-button">Sell</button>
+                    <span></span>
+                    <input type="reset" class="btn btn-default" value="Cancel">
+                </div>
+            </div>
+            
+
+        </div>
+          
+              
+
+        </form>
+      </div>
+      
+    </div>
+</div>
+  

@@ -1,0 +1,184 @@
+form {
+  max-width: 100%; /* product pic */
+  padding: 20px;
+  
+}
+
+
+
+label {
+  display: block;
+  margin-top: 10px;
+  text-align: left;
+}
+
+
+textarea {
+  height: 100px;
+}
+
+
+
+.product-info,
+.product-pic,
+.product-price {
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin-bottom: 20px;
+  width: 100%;
+  box-sizing: border-box;
+
+}
+
+.add-product {
+  background-color: #f5f8fa;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px auto;
+}
+
+h1 {
+  text-align: center;
+}
+
+.blue {
+  color: #1396CE;
+}
+
+.page-container {
+  padding-top: 20px;
+}
+
+.image-input input:hover {
+  cursor: pointer;
+}
+
+
+
+select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+#color {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+#size {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+
+.product-info input, textarea{
+  width:100%;
+  border: none;
+  
+}
+
+
+
+.fa-camera-retro,
+.fa-pencil,
+.fa-money {
+  margin-right: 10px;
+}
+
+.title-box {
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin-bottom: 20px;
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+
+
+button .disabled-button{
+  color: #fff;
+  background: linear-gradient(to right, #4ccbb2, #4ccbb2);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: capitalize;
+  padding: 9px 11px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  display: inline-block;
+  text-align: center;
+  margin-left:10%;
+  margin-right:10%;
+  width:25%;
+}
+
+button:hover,
+button:focus {
+  box-shadow: 0 0 10px #4ccbb2;
+  outline: none;
+  
+}
+
+.disabled-button:hover {
+  cursor: not-allowed;
+}
+
+
+.disabled-button:enabled:hover {
+  background: #ffffff;
+  color: #1396CE;
+  cursor: pointer;
+}
+
+.product_pic_1{
+  color:#da4b4b;
+}
+
+.uploded_image {
+  max-width: 150px;
+  max-height: 150px;
+  border: 1px solid #ddd;
+  margin-top: 10px;
+  display: block;
+}
+
+.image-input label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .title-box{
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.delete-link{
+  color:red;
+  font-style: bold;
+  cursor:pointer;
+
+}

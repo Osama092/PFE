@@ -1,0 +1,129 @@
+
+
+.user-review-image{
+    border-radius:50%;
+    width:90px;
+    height:90px;
+}
+
+.logo-text {
+  display: inline-block; /* Ensure text stays in line with logo */
+  vertical-align: middle; /* Align vertically with logo */
+  margin-top:10px;
+}
+
+.bw-icon-text-logo{
+    height:100%;
+    width: 100%;
+}
+
+.bw-logo{
+  width: 90px;
+  height: 90px;
+}
+
+.blue-logo{
+  font-size:50px;
+}
+
+
+.black{
+  color:black;
+  font-weight: bold;
+  font-size:50px;
+}
+.product-image{
+    width:370px;
+    height:390px;
+}
+
+.hiw{
+    width: 360px !important;
+    height: 370px !important;
+}
+
+.blue{
+    color: #1396CE !important;
+}
+
+.review-content{
+    margin-top:20px;
+    font-size:18px;
+}
+
+.review-user{
+    font-size:20px;
+}
+
+/* CSS to change the color of carousel navigation arrows within the specific section */
+/* Change the color of carousel navigation arrows within the specific section */
+
+/* Change carousel arrow color */
+:host ::ng-deep .p-carousel-prev,
+:host ::ng-deep .p-carousel-next {
+    color: #1396CE; /* Change to your desired color */
+}
+
+
+.card{
+    width:50%;
+    margin-left:25%;
+}
+:host ::ng-deep {
+    .product-item {
+        .product-item-content {
+            border: 1px solid var(--surface-d);
+            border-radius: 3px;
+            margin: .3rem;
+            text-align: center;
+            padding: 2rem 0;
+        }
+    
+        .product-image {
+            width: 50%;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
+        }
+    }
+}
+
+/* discover more */
+
+.u-section-1 .u-repeater-1 {
+    grid-template-columns: repeat(3, calc(33.3333% - 6.66667px));
+    min-height: 446px;
+    grid-gap: 10px;
+  }
+  
+  .u-section-1 .u-image-1 {
+    width: 350px;
+    height: 400px;
+    margin: 40px auto 0;
+    border-radius:5%;
+  }
+  
+
+  
+  .u-align-center {
+    text-align: center;
+  }
+
+
+
+
+.u-text-grey-40 {
+    color: #8a8a8a !important;
+}
+
+.u-black{
+    color: #ffffff;
+    background-color: #1396CE;
+}
+
+.u-repeater {
+    display: grid;
+}
+
+
+
+
+

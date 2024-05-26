@@ -1,0 +1,99 @@
+.filter-container {
+    margin: 2%;
+    
+    flex-direction: column; /* Stack elements vertically */
+    gap: 10px;
+    
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1%;
+    width: 100%;
+    box-sizing: border-box;
+    
+
+}
+
+
+
+.filter-group {
+    margin-bottom: 10px;
+}
+
+.filter-group label {
+    display: block;
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.filter-select, .filter-input, #state, #size {
+    width: 100%; /* Full width for input and select elements */
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.price-checkboxes {
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+}
+
+.price-checkboxes label {
+    margin-bottom: 5px;
+}
+
+
+.filter-colors {
+    display: flex;
+    flex-wrap: wrap;
+    width:100%;
+    gap: 20px;
+    margin-top: 10px;
+
+}
+
+.filter-color {
+    display: flex;
+    
+    gap: 10px;
+    cursor: pointer;
+}
+
+.dot {
+    border: 1px rgb(128, 124, 124) solid;
+    width: 25px;
+    height: 25px;
+    background-color: var(--product-color, #3498db);
+    border-radius: 50%;
+    display: inline-block;
+}
+
+
+
+.selected-text:hover {
+    text-shadow: 0 0  10px var(--product-color);
+}
+
+
+  
+.multi-color-dot {
+    background-image: url('/assets/multi.21bf528e99bdfae4.jpg');
+    background-size: cover;
+    background-position: center center;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: inline-block;
+
+}
+
+
+
+.filter-btn {
+    padding: 10px;
+    cursor: pointer;
+    background-color:  #1396CE;
+    color: white;
+    border: none;
+}
+

@@ -1,0 +1,159 @@
+<app-nav-bar></app-nav-bar>
+<div class="body">
+  <div class="user-info">
+    <div *ngIf="userId" class="user-details">
+      <img [src]="'data:image/png;base64,' + userPic" alt="User Image" class="user-image round-image">
+      <div class="username">Welcome {{ user_username }}</div>
+    </div>
+    <div *ngIf="!userId" class="user-details">
+      <img src="assets/default_profile_picture.jpg" alt="Default Image" class="user-image round-image">
+      <div class="username">Welcome Guest</div>
+    </div>     
+
+    <p>
+      <a (click)="goToAddProductPage()" class="custom-btn-green btn-block">
+        <i class="fa fa-plus"></i> I am selling an item
+      </a>
+    </p>
+    <div class="filter-group">
+        <label  for="search">Search:</label>
+        <input  [(ngModel)]="filterSearch" (keyup)="filterByProductNameOrDescription(filterSearch)" name="searchKey" id="searchKey" class="filter-input" placeholder="Search...">
+    </div>
+
+    <div class="filter-group">
+      <label for="category">Category:</label>
+            <select id="category" class="filter-select"[(ngModel)]="filterCategory" (ngModelChange)="filterByCategory(filterCategory)">
+              <ng-container *ngFor="let category of fashionCategorys">
+                <option [value]="category">{{ category }}</option>
+              </ng-container>
+            </select>
+    </div>
+
+    <div class="filter-group">
+      <label for="brand">Brand:</label>
+      <select id="brand" class="filter-select" [(ngModel)]="filterBrand" (ngModelChange)="filterByBrand(filterBrand)">
+        <ng-container *ngFor="let brand of fashionBrands">
+          <option [value]="brand">{{ brand }}</option>
+        </ng-container>
+      </select>
+    </div>
+    
+      
+    <div class="filter-group">
+      <label for="price">Price:</label>
+      <span>{{filterMinPrice}}</span>
+      
+      <mat-slider min="10" max="1000">
+        <input value="10" matSliderStartThumb [(ngModel)]="filterMinPrice" (change)="filterByPriceRange(filterMinPrice, filterMaxPrice)">
+        <input value="1000" matSliderEndThumb [(ngModel)]="filterMaxPrice" (change)="filterByPriceRange(filterMinPrice, filterMaxPrice)">
+      </mat-slider>
+      <span>{{filterMaxPrice}}</span>
+    </div>
+
+    <div class="filter-group">
+      <label for="state">State:</label>
+      <select name="State" id="state" [(ngModel)]="filterState" (ngModelChange)="filterByState(filterState)">
+        <ng-container *ngFor="let state of fashionStates">
+          <option [value]="state">{{ state }}</option>
+        </ng-container>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label for="Size" >Size:</label>
+        <select name="Size" id="size" [(ngModel)]="filterSize" (ngModelChange)="filterBySize(filterSize)">
+          <ng-container *ngFor="let size of fashionSizes">
+            <option [value]="size">{{ size }}</option>
+          </ng-container>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label for="colors">Colors:</label>
+      <div class="filter-colors">
+       
+        <ng-container *ngFor="let color of filteredColors; let i = index">
+          <li class="filter-color" [style.--product-color]="color.value" (click)="filterByColor(color.name)" [class.clicked]="color.isSelected">
+            <span class="dot" [class.clicked]="color === selectedColor" (click)="selectColor(color)"></span>
+           
+          </li>
+          <!-- Display "Show More" link after the third item -->
+          <ng-container *ngIf="i === 2 && !showAllColors">
+            <li class="filter-color show-more" (click)="showAllColors = true">
+              <span>Show More</span>
+            </li>
+          </ng-container>
+        </ng-container>
+      
+        <!-- Display the remaining colors when showAllColors is true -->
+        <ng-container *ngIf="showAllColors">
+          <li class="filter-color" *ngFor="let color of colors.slice(3)" [style.--product-color]="color.value" (click)="filterByColor(color.name)" [class.clicked]="colorisClicked">
+            <span class="dot" [class.clicked]="color === selectedColor" (click)="selectColor(color)"></span>
+          </li>
+          
+          <!-- Display "Show Less" link when showAllColors is true -->
+          <li class="filter-color show-less" (click)="showAllColors = false">
+            
+            
+            <span>Show Less</span>
+          </li>
+        </ng-container>
+        
+        </div>
+      </div>
+
+      
+
+      <button class="custom-btn-green btn-block" (click)="resetFilters()">
+        <i class="fa fa-refresh"></i> Reset Filters
+      </button>
+
+      
+  </div>
+  
+          
+  <div>
+  <div class="container mt-5">
+    <div *ngIf="products && products.length > 0" class="row" >
+      <div class="col-md-3" *ngFor="let product of products">
+          <div class="card">
+            <div class="image-container">
+              <div class="first">
+                <div class="d-flex justify-content-between align-items-center">
+
+                  <span class="discount">-25%</span>
+                  <span class="wishlist" (click)="heartClicked(product)" [class.clicked]="product.isClicked"><i class="fa-solid fa-heart"></i></span>
+                  
+                </div>
+              </div>
+              <img [routerLink]="['/product-detail', product.productId]" [src]="'data:image/png;base64,' + product.productPic1" alt="Product Image" class="img-fluid rounded thumbnail-image">
+            </div>
+
+            <div class="product-detail-container p-2">
+                <div class="d-flex justify-content-between align-items-center">
+                  <h5 class="dress-name">{{ product.productName }} </h5>
+                  <div class="d-flex flex-column mb-2">
+
+                    <span class="new-price">{{ product.productPrice }} DT</span>
+                    <small class="old-price text-right">{{ product.productOriginalPrice }} DT</small>
+
+                  </div>
+                </div>
+                
+              <div class="d-flex align-items-center">
+                <div>
+                  <img *ngIf="product.product_holder" [src]="'data:image/png;base64,' + product.product_holder" alt="Product Image" class="product-holder-pic">
+                </div>
+                <div class="additional-text">
+
+                  <span> Size: {{product.productSize}} </span>
+                  <br>
+                  <span> Brand: {{product.productBrand}} </span>
+
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+  </div>
+</div>

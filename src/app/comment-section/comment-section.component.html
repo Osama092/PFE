@@ -1,0 +1,49 @@
+<div class="t-comments-box">
+  <div class="add-comment">
+    <img [src]="" alt="" />
+    <div class="comment-input">
+      <input
+        class="form-control form-control-sm"
+        type="text"
+        [(ngModel)]="newComment"
+        placeholder="Add a comment.."
+      />
+      <div class="comment-send" (click)="addComment()">
+        <i class="fab fa-telegram-plane"></i>
+      </div>
+    </div>
+  </div>
+  <!-- Display existing comments -->
+  <div class="existing-comments">
+    <div *ngIf="comments.length === 0" class="no-comments-message">
+      No comments yet. Be the first to comment!
+    </div>
+    <div class="comment" *ngFor="let comment of comments" >
+      <!-- Check if commentOwner is defined before accessing its properties -->
+      <ng-container *ngIf="comment.commentOwner">
+        <!-- Display user profile picture -->
+        <img [src]="'data:image/png;base64,' + comment.commentOwner.userProfilePic" alt="" />
+        <div>
+          <div class="comment-label">
+            <!-- Display username -->
+            <span class="comment-name">{{ comment.commentOwner.userUsername }}</span>
+            <!-- Display comment time -->
+            <span class="comment-time"> - {{ comment.commentDate | date: 'medium' }}</span>
+            
+          </div>
+          <!-- Display comment content -->
+          <div> <!-- Show comment content only if not in editing mode -->
+            <div class="comment-content">
+              {{ comment.commentContent }}
+            </div>
+          </div>
+    
+
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  
+    
+
+  </div>

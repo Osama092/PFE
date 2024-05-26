@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap');
+
+.notifications-item{display: flex;border-bottom: 1px solid #eee;padding: 6px 9px;
+	cursor: pointer}
+.notifications-item:hover{
+	background-color: #eee
+}
+.notifications-item img{
+	display: block;width: 20px;
+	height: 20px;margin-right: 9px;
+	border-radius: 50%;
+	margin-top: 2px
+}
+
+.active{
+	font-weight: bolde;
+	font-size: large;
+	color:#1396CE;
+	text-decoration: none;
+}
+
+.notifications-item .text h4{
+	color: #777;
+	font-size: 16px;
+	margin-bottom:5px;
+}
+
+.notifications-item .text p{
+	color: #aaa;
+	font-size: 12px;
+	margin-top: 5px;
+
+}
+.navbar {
+    display: flex;
+	position:relative;
+    padding: 0.5%;
+    background-color: #ffffff;
+    color: #fff;
+	width:100%; 
+}
+  
+.logo img {
+	height: 30px;
+
+}
+
+
+
+.search input {
+	padding: 8px;
+	border: none;
+	border-radius: 5px;
+	background-color: #f5f8fa;
+	outline:none;
+	width:100%;
+}
+
+
+
+.user-image img {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	aspect-ratio: 1 / 1;
+}
+
+.custom-btn-green:hover {
+	background-color: #ffffff;
+	color: #1396CE;
+	border-color:#1396CE ;
+
+}
+
+/* Override badge color */
+.custom-badge-color .mat-badge-content {
+	background-color: #1396CE !important;
+	color: #fff !important; /* Change text color as needed */
+  }
+  
+
+.custom-btn-green {
+	color: #fff;
+	background-color: #1396CE;
+	border-color: #1396CE;
+	display: inline-block;
+	margin-bottom: 0;
+	font-weight: 400;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	touch-action: manipulation;
+	cursor: pointer;
+	background-image: none;
+	border: 1px solid transparent;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	border-radius: 4px;
+	-webkit-user-select: none;
+	user-select: none;
+	text-decoration: none;
+	width:150% ;
+
+}
+
+
+  
+.notification-item.clicked {
+	background-color: white; /* Change to desired background color when clicked */
+}
+
+.blue{
+	color:#1396CE;
+}
+
+
+
+  
+
+@media (max-width: 768px) {
+	.navbar .sell-button .custom-btn-green {
+	  display: none; /* Hide the user profile section */
+	}
+  }

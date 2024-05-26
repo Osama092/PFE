@@ -1,0 +1,30 @@
+.fa{
+  font-size: large;
+  margin-top:11px;
+}
+
+.warning-box{
+  background-color: rgba(201, 87, 87, 0.2);
+  color: #d39494;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.img-circle{
+  border-radius: 50%;
+}
+
+/* Ensure the .form-control class has consistent spacing */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  font-weight: bold;
+}
+
+select.form-control, 
+input.form-control {
+  width: 100%;
+}

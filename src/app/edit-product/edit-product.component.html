@@ -1,0 +1,135 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="container">
+  <h1>Edit Product</h1>
+  <hr>
+      <form #userForm="ngForm" (ngSubmit)="updateProduct()" class="form-horizontal" role="form">
+          <div class="row">
+              <!-- left column -->
+              <div class="col-md-9">
+                  
+                  <div class="text-center">
+                      <div class="text-center">
+                          <p-carousel [value]="productImages" [numVisible]="1" [circular]="true" [autoplayInterval]="3000" [showIndicators]="false">
+                            <ng-template let-image pTemplate="item">
+                              <img *ngIf="image" [src]="image">
+                              <input type="file" class="form-control" (change)="onFileSelected($event, getIndex(image))" id="userProfilePic">
+                              <label> Image {{getIndex(image) + 1}} <span *ngIf="getIndex(image) === 0" class="required">Required</span></label>
+
+                            </ng-template>
+                          </p-carousel>
+                        </div>
+                        
+                  </div>
+              </div>
+      
+              <!-- edit form column -->
+              <div class="col-md-9 personal-info">
+              
+
+   
+    <h3>Product info</h3>
+
+    <div class="form-group row">
+        <label class="col-lg-3 col-form-label" for="productName">Product name:</label>
+        <div class="col-lg-9">
+            <input class="form-control" type="text" id="productName" [(ngModel)]="updatedProduct.productName" name="productName" required>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-lg-3 col-form-label" for="productDescription">Product description:</label>
+        <div class="col-lg-9">
+            <input class="form-control" type="text" id="productDescription" [(ngModel)]="updatedProduct.productDescription" name="productDescription" required>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-lg-3 col-form-label" for="category">Product category:</label>
+        <div class="col-lg-9">
+            <select class="form-control" name="Category" id="category" [(ngModel)]="updatedProduct.productCategory">
+                <option [value]="updatedProduct.productCategory">{{ updatedProduct.productCategory }}</option>
+                <option value="Clothes">Clothes</option>
+                <option value="Shoes">Shoes</option>
+                <option value="Accessory">Accessory</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-lg-3 col-form-label" for="brand">Brand:</label>
+        <div class="col-lg-9">
+            <select class="form-control" name="Brand" id="brand" [(ngModel)]="updatedProduct.productBrand">
+                <option [value]="updatedProduct.productBrand">{{ updatedProduct.productBrand }}</option>
+                <option value="Peak">Peak</option>
+                <option value="Nike">Nike</option>
+                <option value="Adidas">Adidas</option>
+                <option value="Calvin Klein">Calvin Klein</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-lg-3 col-form-label" for="state">State:</label>
+        <div class="col-lg-9">
+            <select class="form-control" name="State" id="state" [(ngModel)]="updatedProduct.productState">
+                <option [value]="updatedProduct.productState">{{ updatedProduct.productState }}</option>
+                <option value="New with label">New with label</option>
+                <option value="New without label">New without label</option>
+                <option value="Very good state">Very good state</option>
+                <option value="Good condition">Good condition</option>
+                <option value="Satisfying">Satisfying</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-lg-3 col-form-label" for="size">Size:</label>
+        <div class="col-lg-9">
+            <select class="form-control" name="Size" id="size" [(ngModel)]="updatedProduct.productSize">
+                <!-- Options here -->
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-lg-3 col-form-label" for="color">Color:</label>
+        <div class="col-lg-9">
+            <select class="form-control" name="Color" id="color" [(ngModel)]="updatedProduct.productColor">
+                <!-- Options here -->
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-lg-3 col-form-label" for="productPrice">Price:</label>
+        <div class="col-lg-9">
+            <input class="form-control" type="text" id="productPrice" [(ngModel)]="updatedProduct.productPrice" name="productPrice">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-lg-3 col-form-label" for="productOriginalPrice">Original price:</label>
+        <div class="col-lg-9">
+            <input class="form-control" type="text" id="productOriginalPrice" [(ngModel)]="updatedProduct.productOriginalPrice" name="productOriginalPrice">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-lg-9 offset-lg-3">
+            <button type="submit" [disabled]="userForm.invalid" class="btn btn-primary">Update Product</button>
+            <input type="reset" class="btn btn-secondary" value="Cancel">
+        </div>
+    </div>
+</div>
+
+
+              
+
+
+
+          </div>
+      </form>
+  <hr>
+</div>
+

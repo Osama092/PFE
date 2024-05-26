@@ -1,0 +1,316 @@
+
+
+body{
+    margin-top:20px;
+    color: #1a202c;
+    text-align: left;
+    background-color: #e2e8f0;    
+}
+.main-body {
+    padding: 15px;
+}
+.card {
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1rem;
+}
+
+.gutters-sm {
+    margin-right: -8px;
+    margin-left: -8px;
+}
+
+.gutters-sm>.col, .gutters-sm>[class*=col-] {
+    padding-right: 8px;
+    padding-left: 8px;
+}
+.mb-3, .my-3 {
+    margin-bottom: 1rem!important;
+}
+
+
+
+
+.aoi {
+    list-style: none;
+    padding: 0;
+}
+
+ul, ol {
+    margin-top: 0;
+    margin-bottom: 11px;
+}
+ol, ul {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.aoj {
+    display: inline-block;
+    padding: 0 10px;
+    border-right: 1px solid #d4dbe0;
+}
+
+.round-image {
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+}
+
+.additional-text {
+	font-size: 12px;
+	color: #777; /* Adjust color as needed */
+	margin-top: 5px; /* Adjust spacing as needed */
+	margin-left:10px;
+  }
+
+.card{
+
+	background-color: #fff;
+	border:none;
+	border-radius: 10px;
+	width: 100%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  	gap:10px;
+    margin-bottom: 10px;
+
+}
+
+.product-holder-pic {
+	width: 30px;
+	height: 30px; 
+	border-radius: 50%;
+	position: relative;
+	
+  }
+.image-container{
+
+	position: relative;
+  	width:100%;
+}
+
+.thumbnail-image{
+	border-radius: 10px !important;
+}
+
+
+
+
+
+.fa-heart {
+	font-size: 17px; /* Change this value to adjust the size of the heart icon */
+  }
+
+.follow-pic{
+	border-radius: 50%;
+	width: 30px;
+	height: 30px;
+}
+
+.first{
+
+	position: absolute;
+	width: 100%;
+	    padding: 9px;
+}
+
+
+.dress-name{
+	font-size: 13px;
+	font-weight: bold;
+	width: 75%;
+}
+
+
+.new-price{
+	font-size: 12px;
+	font-weight: bold;
+	color: #1396CE;
+	
+}
+.old-price{
+	font-size: 8px;
+	font-weight: bold;
+	color: grey;
+  text-decoration: line-through;
+}
+
+.empty-wardrobe{
+	width:500px;
+	height:500px;
+	align-items: center;
+	margin-left:150px;
+}
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+.item-size{
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	background: #fff;
+	border: 1px solid grey;
+	color: grey;
+	font-size: 10px;
+	text-align: center;
+	align-items: center;
+	display: flex;
+	justify-content: center;
+}
+
+
+
+
+.buy{
+	font-size: 12px;
+	color: #1396CE;
+	font-weight: 500;
+}
+
+
+.card .img-fluid{
+  width:100%;
+  height: 250px;
+  object-fit: cover;
+  
+}
+
+table {
+	width: 100%;
+  }
+  
+  tr.example-detail-row {
+	height: 0;
+  }
+  
+  tr.example-element-row:not(.example-expanded-row):hover {
+	background: whitesmoke;
+  }
+  
+  tr.example-element-row:not(.example-expanded-row):active {
+	background: #efefef;
+  }
+  
+  .example-element-row td {
+	border-bottom-width: 0;
+  }
+  
+  .example-element-detail {
+	overflow: hidden;
+	display: flex;
+  }
+  
+  .example-element-diagram {
+	min-width: 80px;
+	border: 2px solid black;
+	padding: 8px;
+	font-weight: lighter;
+	margin: 8px 0;
+	height: 104px;
+  }
+  
+  .example-element-symbol {
+	font-weight: bold;
+	font-size: 40px;
+	line-height: normal;
+  }
+  
+  .example-element-description {
+	padding: 16px;
+  }
+  
+  .example-element-description-attribution {
+	opacity: 0.5;
+  }
+  
+
+  .follow-button {
+	transition: background-color 0.3s ease;
+  }
+  
+  .follow-button:hover {
+	background-color: #1396ce;
+  }
+  
+  .follow-button:hover i {
+	color: white;
+  }
+  
+  .follow-button:hover span {
+	color: white;
+  }
+	
+  .blue{
+	color:#1396CE;
+  }
+
+  .aoi {
+  list-style: none;
+  padding: 0;
+}
+
+.aoj {
+  margin-bottom: 10px;
+}
+
+.aku {
+  text-decoration: none;
+  color: #333; /* default link color */
+  justify-content: space-between;
+  align-items: center;
+}
+
+.aku:hover {
+  color: #1396ce; /* change link color on hover */
+}
+
+.ali {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Optional: Add more styles as needed */
+
+.user-bio {
+	margin-top:10px;
+	background-color: #f0f0f0; /* Light gray background color */
+	border-left: 4px solid #1396ce; /* Border on the left side */
+	padding: 20px; /* Add padding to create space */
+	margin-bottom: 20px; /* Add margin for spacing */
+  }
+  
+  .quotation-mark {
+	font-size: 40px; /* Font size of the quotation mark */
+	color: #1396ce; /* Dark gray color */
+	margin-bottom: 10px; /* Adjust margin as needed */
+  }
+  

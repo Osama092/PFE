@@ -1,0 +1,207 @@
+
+    <div class="filter-container" >
+
+        <div class="filter-group">
+            <label  for="search">Search:</label>
+            <input  name="searchKey" id="searchKey" class="filter-input" placeholder="Search...">
+        </div>
+
+        <div class="filter-group">
+            <label for="category">Category:</label>
+            <select id="category" class="filter-select">
+                <option value="category1">Category 1</option>
+                <option value="category2">Category 2</option>
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <label for="brand">Brand:</label>
+            <select id="brand" class="filter-select">
+                <option value="brand1">Brand 1</option>
+                <option value="brand2">Brand 2</option>
+            </select>
+        </div>
+
+
+
+        <!-- Include the state select dropdown -->
+        <div class="filter-group">
+            <label for="state">State:</label>
+            <select name="State" id="state">
+                <option value="New with label">New with label</option>
+                <option value="New without label">New without label</option>
+                <option value="Very good state">Very good state</option>
+                <option value="Good condition">Good condition</option>
+                <option value="Satisfying">Satisfying</option>
+            </select>
+        </div>
+        
+        <div class="filter-group">
+            <label for="colors">Colors:</label>
+            <div class="filter-colors">
+                <div class="filter-color" style="--product-color: #FFFFFF;">
+                    <span class="dot"></span>
+                    <span class="selected-text">White</span>
+                </div>
+                
+                <div class="filter-color" style="--product-color: #000000;">
+                    <span class="dot"></span>
+                    <span class="selected-text">Black</span>
+
+                </div>
+                
+                <div class="filter-color" style="--product-color: #808080;">
+                    <span class="dot"></span>
+                    <span class="selected-text">Gray</span>
+
+                </div>
+                
+                <div class="filter-color" style="--product-color: #C0C0C0;">
+                    <span class="dot"></span>
+                    <span class="selected-text">Silver</span>
+
+                </div>
+                
+                <div class="filter-color" style="--product-color: #F5F5DC;">
+                    <span class="dot"></span>
+                    <span class="selected-text">Beige</span>
+                </div>
+                
+                <div class="filter-color" style="--product-color: #964B00;">
+                    <span class="dot"></span>
+                    <span class="selected-text">Brown</span>
+
+                </div>
+                
+                <div class="filter-color" style="--product-color: #C19A6B;">
+                    <span class="dot"></span>
+                    <span class="selected-text">Camel</span>
+
+                </div>
+                
+                <div class="filter-color" style="--product-color: #FFD700;">
+                    <span class="dot"></span>
+                    <span class="selected-text">Gold</span>
+                </div>
+                
+                <div class="filter-color" style="--product-color: #FF6F61;">
+                    <span class="dot"></span>
+                    <span class="selected-text">Coral</span>
+                </div>
+                
+                <div class="filter-color" style="--product-color: #FFD700;">
+                    <span class="dot"></span>
+                    <span class="selected-text">Yellow</span>
+
+                </div>
+                
+                <div class="filter-color" style="--product-color: #40E0D0;">
+                    <span class="dot"></span>
+                    <span class="selected-text">Turquoise</span>
+                    
+                </div>
+                
+                <div class="filter-color" style="--product-color: #008000;">
+                    <span class="dot"></span>
+                    <span class="selected-text">Green</span>
+
+                </div>
+                
+                <div class="filter-color" style="--product-color: #98FB98;">
+                    <span class="dot"></span>
+                    <span class="selected-text">Mint Green</span>
+
+                </div>
+                
+                <div class="filter-color" style="--product-color: #800080;">
+                    <span class="dot"></span>
+                    <span class="selected-text">Purple</span>
+                    
+                </div>
+                
+                <div class="filter-color" style="--product-color: #FFA500;">
+                    <span class="dot"></span>
+                    <span class="selected-text">Orange</span>
+                    
+                </div>
+                
+                <div class="filter-color" style="--product-color: #FFC0CB;">
+                    <span class="dot"></span>
+                    <span class="selected-text">Pink</span>
+
+                </div>
+                
+                <div class="filter-color" style="--product-color: #FFB6C1;">
+                    <span class="dot"></span>
+                    <span class="selected-text">Powder Pink</span>
+                    
+                </div>
+                
+                <div class="filter-color" style="--product-color: #FF0000;">
+                    <span class="dot"></span>
+                    <span class="selected-text">Red</span>
+
+                </div>
+                
+                <div class="filter-color" style="--product-color: #FFE4B5;">
+                    <span class="dot"></span>
+                    <span class="selected-text">Nude</span>
+                </div>
+
+                <div class="filter-color multi-color">
+                    <span class="multi-color-dot"></span>
+                    <span class="selected-multicolored-text">Multicolored</span>
+                </div>
+                
+        </div>
+
+        <mat-slider min="10" max="1000">
+            <input value="10" matSliderStartThumb [(ngModel)]="minPrice"><span>{{minPrice}}</span>
+            <input value="1000" matSliderEndThumb [(ngModel)]="maxPrice"><span>{{maxPrice}}</span>
+        </mat-slider>
+
+
+
+        <!-- Include the size select dropdown -->
+        <div class="filter-group">
+            <label for="Size">Size:</label>
+            <select name="Size" id="size">
+
+                <option value="32">32</option>
+                <option value="33">33</option>
+                <option value="34">34</option>
+                <option value="35">35</option>
+                <option value="36">36</option>
+                <option value="37">37</option>
+                <option value="38">38</option>
+                <option value="39">39</option>
+                <option value="40">40</option>
+                <option value="41">41</option>
+                <option value="42">42</option>
+                <option value="43">43</option>
+                <option value="44">44</option>
+                <option value="45">45</option>
+                <option value="46">46</option>
+                <option value="47">47</option>
+                <option value="48">48</option>
+                <option value="49">49</option>
+                <option value="50">50</option>
+
+                <option value="XXS">XXS</option>
+                <option value="XS">XS</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+                <option value="XXL">XXL</option>
+                <option value="XXXL">XXXL</option>
+                <option value="4XL">4XL</option>
+
+                <option value="Autre Taille">Other Size</option>
+            </select>
+        </div>
+
+
+
+        <button class="filter-btn">Apply Filters</button>
+    </div>

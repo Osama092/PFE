@@ -1,0 +1,15 @@
+<h2 mat-dialog-title>Report This item</h2>
+<mat-dialog-content class="mat-typography">
+  <label id="example-radio-group-label">Please select the type of problem</label>
+  <mat-radio-group
+    aria-labelledby="example-radio-group-label"
+    class="example-radio-group"
+    [(ngModel)]="selectedReport">
+    <mat-radio-button *ngFor="let report of reports" [value]="report">{{report}}</mat-radio-button>
+  </mat-radio-group>
+  <div>
+    <button mat-button (click)="sendReport()">Done</button>
+    <button mat-button (click)="cancel()">Cancel</button> <!-- Add cancel button -->
+
+  </div>
+</mat-dialog-content>

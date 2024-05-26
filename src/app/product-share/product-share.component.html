@@ -1,0 +1,16 @@
+<h2 mat-dialog-title class="dialog-title">Share With Your Friends!</h2>
+<mat-dialog-content class="dialog-content">
+  <div class="center-container">
+    <share-buttons class="share-button" theme="circles-dark"
+    [include]="['copy', 'facebook', 'messenger','whatsapp']"
+    [showIcon]="true"
+    [showText]="true"
+    url="currentUrl">
+  </share-buttons>
+  </div>
+  
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions">
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>
+    
